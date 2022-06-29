@@ -3,7 +3,14 @@
  */
 
 const baseJoi = require('joi');
+let passwordValidator = require('password-validator');
+let emailValidator = require("email-validator");
+let passwordHash = require('password-hash');
 
+/**
+ * Create a schema
+ */
+let schema = new passwordValidator();
 
 let EVMJoi = baseJoi.extend((joi) => {
 
@@ -23,7 +30,8 @@ let EVMJoi = baseJoi.extend((joi) => {
                     return this.$_addRule('Email');
                 },
                 validate(value, helpers) {
-                    if(!value) {
+                    let result =  emailValidator.validate(value)
+                    if(!result) {
                         return helpers.error('user.email');
                     }
                     return value;
@@ -33,11 +41,21 @@ let EVMJoi = baseJoi.extend((joi) => {
                 method() {
                     return this.$_addRule('Password');
                 },
-                validate(value) {
-                    if(!value) {
+                validate(value,helpers) {
+                    schema
+                    .is().min(8)                                    // Minimum length 8
+                    .is().max(100)                                  // Maximum length 100
+                    .has().uppercase()                              // Must have uppercase letters
+                    .has().lowercase()                              // Must have lowercase letters
+                    .has().digits(2)                                // Must have at least 2 digits
+                    .has().not().spaces()                           // Should not have spaces
+                    .is().not().oneOf(['Passw0rd', 'Password123']); // Blacklist these values
+                    let result = schema.validate(value);
+                    if(!result) {
                         return helpers.error('user.password');
                     }
-                    return value;
+                    let hashedPassword = passwordHash.generate(value);
+                    return hashedPassword;
                 }
             }
         }
