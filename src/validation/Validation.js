@@ -21,7 +21,7 @@ let EVMJoi = baseJoi.extend((joi) => {
         messages: {
             'user.email': '{{#label}} Sorry, only letters (a-z), numbers(0-9), at (@), and periods (.) are allowed.',
             'user.password': '{{#label}} Use 8 or more characters with a mix of letters, numbers & symbols.',
-            'user.age': '{{#label}} Sorry, the age you entered does not meet the requirements {age > 10 and age < 110}.'
+            'user.age': '{{#label}} Sorry, the age you entered does not meet the requirements (age > 10 and age < 110).'
         },
         validate(value, helpers) {
             return { value };
