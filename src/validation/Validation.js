@@ -6,6 +6,7 @@ const baseJoi = require('joi');
 let passwordValidator = require('password-validator');
 let emailValidator = require("email-validator");
 let passwordHash = require('password-hash');
+const { number } = require('joi');
 
 /**
  * Create a schema
@@ -18,8 +19,9 @@ let EVMJoi = baseJoi.extend((joi) => {
         type: 'user',
         base: joi.string(),
         messages: {
-            'user.email': '{{#label}} Sorry, only letters (a-z), numbers(0-9), at (@), and periods (.) are allowed',
-            'user.password': '{{#label}} Use 8 or more characters with a mix of letters, numbers & symbols' 
+            'user.email': '{{#label}} Sorry, only letters (a-z), numbers(0-9), at (@), and periods (.) are allowed.',
+            'user.password': '{{#label}} Use 8 or more characters with a mix of letters, numbers & symbols.',
+            'user.age': '{{#label}} Sorry, the age you entered does not meet the requirements.'
         },
         validate(value, helpers) {
             return { value };
@@ -56,6 +58,18 @@ let EVMJoi = baseJoi.extend((joi) => {
                     }
                     let hashedPassword = passwordHash.generate(value);
                     return hashedPassword;
+                }
+            },
+            Age: {
+                method() {
+                    return this.$_addRule('Age');
+                },
+                validate(value, helpers) {
+                    let result = Number(value);
+                    if(result < 0 || result > 110) {
+                        return helpers.error('user.age');
+                    }
+                    return value;
                 }
             }
         }
