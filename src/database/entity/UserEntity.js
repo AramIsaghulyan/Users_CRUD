@@ -32,7 +32,7 @@ module.exports = new userSchema ({
         },
         age: {
             name: 'age',
-            type: 'int'
+            type: 'varchar'
         },
         email: {
             name: 'email',

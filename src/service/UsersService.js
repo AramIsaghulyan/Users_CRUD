@@ -21,7 +21,7 @@ class usersService {
             throw new Error('Error: The operation was not performed');
         }
 
-        return 'User has been succsessfully added';
+        return { result: 'User has been succsessfully added' };
     };
 
     static getUsers = async (code) => {
@@ -85,7 +85,7 @@ class usersService {
             throw new Error('Error: The operation was not performed');
         }
 
-        return 'User is delete';
+        return { result: 'User is delete' };
     }
 };
 
