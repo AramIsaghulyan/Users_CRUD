@@ -1,12 +1,9 @@
-/**
- * Standard requires
- */
+
+//Standard requires
 
 const userSchema = require('typeorm').EntitySchema;
 
-/**
- * Local requires
- */
+//Local requires
 
 const userModel = require('../model/UserModel');
 

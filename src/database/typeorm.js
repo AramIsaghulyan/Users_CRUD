@@ -1,13 +1,10 @@
-/**
- * Standard requires
- */
+
+//Standard requires
 
  const { reject } = require('lodash');
 const typeorm = require('typeorm');
 
-/**
- * Local requires
- */
+//Local requires
 
 const utils = require('./utils/utils');
 

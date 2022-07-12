@@ -1,6 +1,5 @@
-/**
- * Local requires
- */
+
+// Local requires
 
 const Joi = require('./Validation').EVMJoi;
 

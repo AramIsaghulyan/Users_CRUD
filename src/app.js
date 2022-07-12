@@ -1,12 +1,9 @@
-/**
- * Standard requires
- */
+
+//Standard requires
 
 const express = require('express');
 
-/**
- * Local requires
- */
+//Local requires
 
 const usersController = require('./controller/UsersController');
 

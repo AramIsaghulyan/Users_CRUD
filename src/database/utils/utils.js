@@ -1,12 +1,10 @@
-/**
- * Standard requires
- */
+
+//Standard requires
 
 const _ = require('lodash');
 
-/**
- * config requires
- */
+///config requires
+
 
 const config = require('../../../config.json');
 

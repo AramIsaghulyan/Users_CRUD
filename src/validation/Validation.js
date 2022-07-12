@@ -1,6 +1,5 @@
-/**
- * Standard requires
- */
+
+//Standard requires
 
 const baseJoi = require('joi');
 let passwordValidator = require('password-validator');
@@ -8,9 +7,7 @@ let emailValidator = require("email-validator");
 let passwordHash = require('password-hash');
 const { number } = require('joi');
 
-/**
- * Create a schema
- */
+//Create a schema
 let schema = new passwordValidator();
 
 let EVMJoi = baseJoi.extend((joi) => {

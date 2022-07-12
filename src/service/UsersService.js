@@ -1,6 +1,5 @@
-/**
- * Local requires
- */
+
+//Local requires
 
 const userModel = require('../database/model/UserModel');
 const typeorm = require('../database/typeorm');

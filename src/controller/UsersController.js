@@ -1,19 +1,14 @@
-/**
- * Standard requires
- */
+
+//Standard requires
 
 const express = require('express');
 const router  = express.Router();
 
-/**
- * Library requires
- */
+//Library requires
 
 const awaitErrorHandlerFactory = require('../shared/Functions').getMiddleware();
 
-/**
- * Local requires
- */
+//Local requires
 
 const usersService = require('../service/UsersService');
 const { validate } = require('../validation/Validation');
