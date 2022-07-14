@@ -59,14 +59,16 @@ router.post('/create_user', awaitErrorHandlerFactory(async (req, res) => {
  *
  * @module getUsers
  * @path {GET} /user/get_users
- * @response {Object} data - Example
+ * @response {Object} result - Example
  *      {
- *          id: 34,
- *          name: "...",
- *          surname: "...",
- *          age: "...",
- *          email: "...",
- *          password: "..."
+ *          data: [
+ *              id: 34,
+ *              name: Eduard,
+ *              surname: Badalyan,
+ *              age: 17,
+ *              email: eduard@gmail.com,
+ *              password: sha1$972c...
+ *          ]
  *      }
  * @response {Object} error - Example
  *          {
@@ -96,14 +98,16 @@ router.get('/get_users', awaitErrorHandlerFactory(async (req, res) => {
  * @module getUserById
  * @path {GET} /user/get_user_by_id/:id
  * @params {Number} id - Id of user
- * @response {Object} data - Example
+ * @response {Object} result - Example
  *      {
- *          id: 34,
- *          name: "...",
- *          surname: "...",
- *          age: "...",
- *          email: "...",
- *          password: "..."
+ *          data: {
+ *              id: 34,
+ *              name: Eduard,
+ *              surname: Badalyan,
+ *              age: 17,
+ *              email: eduard@gmail.com,
+ *              password: sha1$972c...
+ *          }
  *      }
  * @response {Object} error - Example
  *          {
@@ -138,14 +142,9 @@ router.get('/get_user_by_id/:id', awaitErrorHandlerFactory(async (req, res) => {
  * @body {String} age - User age
  * @body {String} email - User email
  * @body {String} password - User password
- * @response {Object} data - Example
+ * @response {Object} result - Example
  *      {
- *          id: 34,
- *          name: "...",
- *          surname: "...",
- *          age: "...",
- *          email: "...",
- *          password: "..."
+ *          data: "User is update"
  *      }
  * @response {Object} error - Example
  *          {
